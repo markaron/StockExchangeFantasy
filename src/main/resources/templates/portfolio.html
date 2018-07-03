@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/style.css}"/>
 </head>
 <body>
 <form>
@@ -14,14 +15,14 @@
             <th>Sell</th>
         </tr>
         <tr th:each="bankAccount : ${bank}">
-            <td class="button" th:action="${bankAccount.addToBalance(bankAccount)}">
-                <input type="submit" value="Hungry?"/></td>
             <td th:class="${bankAccount.getKing()} ? king : notking" th:text="${bankAccount.getKing()}"></td>
             <td th:text="${bankAccountStat.index+1}"></td>
             <td th:text="${bankAccount.getName()}"></td>
             <td th:text="${bankAccount.getBalance()}"></td>
             <td th:text="${bankAccount.getAnimalType()}"></td>
             <td th:text="${bankAccount.getGood()} ? 'Good Guy' : 'Bad Guy'"></td>
+            <td class="button" th:action="${bankAccount.addToBalance(bankAccount)}">
+                <input type="submit" value="Sell"/></td>
         </tr>
     </table>
 </form>
