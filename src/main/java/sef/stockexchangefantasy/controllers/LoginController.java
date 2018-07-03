@@ -26,8 +26,11 @@ public class LoginController {
 
   @PostMapping("/login")
   public String userLogin(@ModelAttribute(name = "name") String name) {
-    StockHolder stockHolder = stockHolderService.login(name);
-    Util.loggedInStockHolder = stockHolder;
-    return "redirect:/portfolio";
+    if(!name.equals("")) {
+      StockHolder stockHolder = stockHolderService.login(name);
+      Util.loggedInStockHolder = stockHolder;
+      return "redirect:/portfolio";
+    }
+    return "login";
   }
 }
