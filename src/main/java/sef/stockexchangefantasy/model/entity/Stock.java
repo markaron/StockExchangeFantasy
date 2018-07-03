@@ -1,11 +1,14 @@
 package sef.stockexchangefantasy.model.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Stock {
   @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private long stock_id;
   private String name;
   private String symbol;
