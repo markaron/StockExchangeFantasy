@@ -1,19 +1,17 @@
 package sef.stockexchangefantasy.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Portfolio {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private long portfolio_id;
   @OneToMany
   @JoinColumn(name="user_id")
-  private List<User> user;
+  private List<StockHolder> stockHolder;
   @OneToMany
   @JoinColumn(name="stock_id")
   private List<Stock> stock;
@@ -22,9 +20,9 @@ public class Portfolio {
   public Portfolio() {
   }
 
-  public Portfolio(long portfolio_id, List<User> user, List<Stock> stock, Integer amount) {
+  public Portfolio(long portfolio_id, List<StockHolder> stockHolder, List<Stock> stock, Integer amount) {
     this.portfolio_id = portfolio_id;
-    this.user = user;
+    this.stockHolder = stockHolder;
     this.stock = stock;
     this.amount = amount;
   }
@@ -33,12 +31,12 @@ public class Portfolio {
     return portfolio_id;
   }
 
-  public List<User> getUser() {
-    return user;
+  public List<StockHolder> getStockHolder() {
+    return stockHolder;
   }
 
-  public void setUser(List<User> user) {
-    this.user = user;
+  public void setStockHolder(List<StockHolder> stockHolder) {
+    this.stockHolder = stockHolder;
   }
 
   public List<Stock> getStock() {
