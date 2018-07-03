@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Portfolio</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/static/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}"/>
 </head>
 <body>
 <form>
@@ -14,8 +14,8 @@
             <th>Value</th>
             <th>Sell</th>
         </tr>
-        <tr th:each="bankAccount : ${bank}">
-            <td th:class="${bankAccount.getKing()} ? king : notking" th:text="${bankAccount.getKing()}"></td>
+        <tr th:each="stockHolder : ${user}">
+            <td th:class="${stockHolder.}"></td>
             <td th:text="${bankAccountStat.index+1}"></td>
             <td th:text="${bankAccount.getName()}"></td>
             <td th:text="${bankAccount.getBalance()}"></td>
